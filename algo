@@ -1,0 +1,163 @@
+class Alimentation:
+	
+	def control_user(user, action, annuler, groupe_phrase)
+		si user est bonheur:
+			#obtenir la confirmation
+			Naomie emande confirmation(groupe_phrase)
+			si confirmation:
+				action
+				Naomie renvoie un message d'acceptation(groupe_phrase)
+			sinon:
+				Naomie renvoie un message d'annulation(groupe_phrase)
+				annuler l'arrêt du pc
+		sinon:
+			Naomie demande un mot de d'autoristation
+			si mot de confirmation existe:
+				Naomie renvoie un message d'autorisation accepté
+				Naomie demande confirmation(groupe_phrase)
+				si confirmationtion
+					Naomie renvoie un message de confirmation(groupe_phrase)
+					anuler
+				sinon:
+					Annuler
+					Naomie renvoie un message de confirmation(groupe_phrase)
+			sinon:
+				Naomie renvoie un message de non autorisation avec un mot erroné
+
+	def poweroff(user):
+		init variable etteindre
+		init var annuler
+		init var groupe de phrase
+		#call of control user
+
+	def restart_pc(user):
+		init variable Rallumer
+		init var annuler
+		init var groupe de phrase
+		#call of control user
+
+	def suspend_pc(user)
+		Naomie Demande confirmation
+		si confirmation:
+			suspend pc
+			Naomie renvoie un message de confirmation
+		sinon:
+			cancel operation
+			Naomie renvoie un message d'annulation
+
+
+def sentence_to_list(speak_user):
+	"""This function transform sentense to list and return it"""
+	recuperer response user tradauit en texte
+	stocker dans une variable et convertir en liste
+
+	retourne la liste des mots
+
+
+def reception_word_user(speak_user, type='instruction'):
+	init list mots = sentence_to_list(speak_user)
+	mots_trouvés = 0
+	init var mot_instruction = ""
+	parcourir la liste:
+		si type == innstruction:
+			si pour chaque mot de la phrase ce dernier existe dans la liste des mots prévus:
+				ajouter le mot dans la var mot_instruction
+			    incremente la var mots_trouvés de 1
+			sinon:
+				retourner instruction eronée
+		sinon:
+			si pour chaque mot de la phrase ce dernier existe dans la liste des mots confirmation:
+				ajouter le mot dans la var mot_instruction
+			    incremente la var mots_trouvés de 1
+			sinon:
+				retourner instruction eronée			
+
+	si liste de mots trouvés est supérieur  à 1:
+		Naomie renvoie un message(ne peut exécuter deux instructions à la fois)
+
+	retourner mot_instruction	
+
+
+
+def Naomie_speak(group_phrase, complement_de_phrase=''):
+	faire un choix aléatoire dans la liste du groupe
+	recuperer la phrase
+	concatener la phrase avec complement_de_phrase
+	lire la phrase recuperée
+
+def detect_user():
+	"""This function detect user by voice and return category of user"""
+
+
+def main():
+	init var instruction = reception_word_instruction(paroles, 'instruction')
+	try:
+		assert instruction != instruction erronée
+	except AssertionError:
+		Naomie renvoie un message d'instruction erronée
+	else:
+		Naomie renvoie un message de demande de confirmation confirmation
+	    init var confirmation = reception_word_instruction(detect_user, 'confirmation')
+	    
+	    while confirmation != True or confirmation != False:
+	    	Naomie redemande confirmation
+	    	confirmation = reception_word_instruction(detect_user, 'confirmation')
+	    	met pause
+
+	    si confirmation == True:
+	    	Naomie renvoi un message d'operation en cours
+	    	Exécution de la tâche
+	    si confirmation == False:
+	    	Naomie renvoie un message d'annulation
+	    	Annule la tâche
+
+Allumage = {
+	"poweroff": {
+		"confirmation": [
+			"Voulez-vous vraiment arrêter la machine ?",
+			"Dois-je etteindre le pc ?",
+			"Devrais-je arrêter le pc ?"
+		],
+
+		"annulation": [
+			"Voulez-vous annuler l'arrêt de la machine ?",
+			"Annulez-vous l'arrêt du pc ?",
+			"Dois-je annuler l'arrêt du pc ?"
+		],
+
+		"accepter": [
+			"Vous avez autoriser l'arrết du pc, operation en cours ",
+			"Arrêt en cours ",
+			"Autoristion acceptée, arrêt de la machine"
+		]
+	},
+
+	"restart": {
+		"confirmation": [
+			"Voulez-vous redémarrer le système ?",
+			"Devrais-je redémarrer le système ?",
+			"Voulez-vous redémarrer la machine ?"
+		],
+
+		"annulation": [
+			"Voulez-vous que j'annule le redémarrage du système ?"
+			"Dois-je annuler le redémarrage de la machine ?"
+			"Redémarrer le système annuler, voulez-vous confirmer l'annulation ?"
+		],
+
+		"accept": [
+			"Opération redémarrage validée !",
+			"Redémarrage en cours, laissez moi faire le travail",
+			"Opération en cours d'exécution !"
+		]
+	}
+}
+
+Allumage_Reponse = {
+	
+	"poweroff": {
+		"annuler": [
+			"annule", "annuler", ""
+		]
+	}
+}
